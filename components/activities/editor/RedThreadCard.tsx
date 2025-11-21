@@ -10,7 +10,7 @@ export function RedThreadCard({ value, onChange }: RedThreadCardProps) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Red Thread</CardTitle>
+        <CardTitle>Roter Faden</CardTitle>
       </CardHeader>
       <CardContent>
         <Textarea

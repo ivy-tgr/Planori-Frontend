@@ -10,7 +10,7 @@ export function SafetyNotesCard({ value, onChange }: SafetyNotesCardProps) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Safety Considerations</CardTitle>
+        <CardTitle>Sicherheitsgedanken</CardTitle>
       </CardHeader>
       <CardContent>
         <Textarea

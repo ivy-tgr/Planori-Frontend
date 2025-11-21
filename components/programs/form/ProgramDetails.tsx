@@ -24,16 +24,16 @@ export function ProgramDetails({ formData, onChange }: ProgramDetailsProps) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Program Details</CardTitle>
+        <CardTitle>Programmdetails</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Program Name
+            Programmname
           </label>
           <Input
             name="name"
-            placeholder="e.g., Spring 2026 - Adventure Land"
+            placeholder="z.B. Frühling 2026 - Abenteuerland"
             value={formData.name}
             onChange={handleChange}
             required
@@ -59,11 +59,11 @@ export function ProgramDetails({ formData, onChange }: ProgramDetailsProps) {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Description
+            Beschreibung
           </label>
           <Textarea
             name="description"
-            placeholder="Brief description of the quarter program"
+            placeholder="Kurze Beschreibung des Quartalsprogramms"
             value={formData.description}
             onChange={handleChange}
             rows={3}

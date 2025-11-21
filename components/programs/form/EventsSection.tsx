@@ -33,19 +33,19 @@ export function EventsSection({ events, onChange }: EventsSectionProps) {
       <CardHeader>
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle>Events</CardTitle>
+            <CardTitle>Veranstaltungen</CardTitle>
             <p className="text-sm text-gray-500 mt-1">
-              Add events with title, date and location (no red thread)
+              Fügen Sie Veranstaltungen mit Titel, Datum und Ort hinzu (kein roter Faden)
             </p>
           </div>
           <Button type="button" onClick={addEvent}>
-            + Add Event
+            + Veranstaltung hinzufügen
           </Button>
         </div>
       </CardHeader>
       <CardContent className="space-y-4">
         {events.length === 0 ? (
-          <p className="text-gray-500 text-center py-4">No events added yet</p>
+          <p className="text-gray-500 text-center py-4">Noch keine Veranstaltungen hinzugefügt</p>
         ) : (
           events.map((event, index) => (
             <EventItem

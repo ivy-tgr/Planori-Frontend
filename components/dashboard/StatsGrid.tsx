@@ -9,27 +9,27 @@ interface StatsGridProps {
 export function StatsGrid({ stats }: StatsGridProps) {
   const statCards = [
     {
-      title: "Upcoming Activities",
+      title: "Bevorstehende Aktivitäten",
       value: stats.upcomingActivities,
-      subtitle: `Total Activities: ${stats.totalActivities}`,
+      subtitle: `Gesamtaktivitäten: ${stats.totalActivities}`,
       icon: Calendar,
     },
     {
-      title: "Active Programs",
+      title: "Aktive Programme",
       value: stats.activePrograms,
-      subtitle: `Total: ${stats.totalPrograms}`,
+      subtitle: `Gesamt: ${stats.totalPrograms}`,
       icon: FileText,
     },
     {
-      title: "Materials",
+      title: "Materialien",
       value: stats.materials,
-      subtitle: "to organize",
+      subtitle: "zu organisieren",
       icon: Package,
     },
     {
-      title: "Users",
+      title: "Benutzer",
       value: stats.users,
-      subtitle: `Active: ${stats.activeUsers}`,
+      subtitle: `Aktiv: ${stats.activeUsers}`,
       icon: Users,
     },
   ];

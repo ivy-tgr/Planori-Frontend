@@ -42,7 +42,7 @@ export function ActivityEditorHeader({
       </div>
       <Button onClick={onSave} className="gap-2">
         <Save className="h-4 w-4" />
-        Save
+        Speichern
       </Button>
     </div>
   );

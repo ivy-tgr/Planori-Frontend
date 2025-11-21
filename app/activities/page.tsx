@@ -21,7 +21,6 @@ import {
   ChevronsLeft,
   ChevronsRight,
   MoreHorizontal,
-  ArrowRight,
 } from "lucide-react";
 import { auth } from "@/lib/firebase";
 import { onAuthStateChanged, User } from "firebase/auth";
@@ -149,9 +148,9 @@ export default function ActivitiesPage() {
                 <Table>
                   <TableHeader>
                     <TableRow className="bg-gray-50">
-                      <TableHead className="w-32">Date</TableHead>
+                      <TableHead className="w-32">Datum</TableHead>
                       <TableHead className="w-40">Thema</TableHead>
-                      <TableHead>Title</TableHead>
+                      <TableHead>Titel</TableHead>
                       <TableHead className="w-48">Ort</TableHead>
                       <TableHead className="w-12"></TableHead>
                     </TableRow>

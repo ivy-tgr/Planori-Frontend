@@ -15,14 +15,12 @@ export function ActivitiesTimeline({ activities }: ActivitiesTimelineProps) {
   return (
     <div className="max-w-4xl mx-auto">
       <h2 className="text-xl font-semibold mb-6 text-gray-900">
-        Activities Timeline
+        Aktivitäten Zeitachse
       </h2>
 
       <div className="relative">
-        {/* Timeline Line */}
         <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-200" />
 
-        {/* Activities */}
         <div className="space-y-6">
           {activities.map((activity) => {
             const status = getActivityStatus(activity.date, activities);

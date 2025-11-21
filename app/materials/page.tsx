@@ -49,7 +49,6 @@ export default function MaterialsPage() {
     return () => unsubscribe();
   }, [router]);
 
-  // Lade Materialien vom Backend
   useEffect(() => {
     const fetchMaterials = async () => {
       try {
@@ -74,16 +73,13 @@ export default function MaterialsPage() {
     fetchMaterials();
   }, []);
 
-  // Filter & Suche
   useEffect(() => {
     let filtered = materials;
 
-    // Filter nach User
     if (filterUser !== "all") {
       filtered = filtered.filter((m) => m.assignedTo === filterUser);
     }
 
-    // Suche nach Item oder Aktivität
     if (searchTerm) {
       filtered = filtered.filter(
         (m) =>
@@ -95,7 +91,6 @@ export default function MaterialsPage() {
     setFilteredMaterials(filtered);
   }, [searchTerm, filterUser, materials]);
 
-  // Alle eindeutigen User extrahieren
   const uniqueUsers = Array.from(
     new Set(materials.map((m) => m.assignedTo))
   ).sort();
@@ -110,7 +105,6 @@ export default function MaterialsPage() {
     });
   };
 
-  // Gruppiere nach User
   const groupedByUser = filteredMaterials.reduce((acc, material) => {
     const user = material.assignedTo || "Unzugewiesen";
     if (!acc[user]) {

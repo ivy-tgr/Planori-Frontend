@@ -79,7 +79,7 @@ export function ProgramForm() {
           Cancel
         </Button>
         <Button type="submit" size="lg" disabled={isSubmitting}>
-          {isSubmitting ? "Saving..." : "Save Quarter Program"}
+          {isSubmitting ? "Saving..." : "Speichere Quartals Program"}
         </Button>
       </div>
     </form>

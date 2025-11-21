@@ -16,10 +16,10 @@ export default function NewProgramPage() {
     <DashboardLayout user={user} activePage="programs">
       <header className="border-b bg-white px-8 py-4">
         <h1 className="text-2xl font-bold text-gray-900">
-          Create New Quarter Program
+          Neues Quartalsprogramm erstellen
         </h1>
         <p className="text-gray-500 mt-1">
-          Select the quintal, add activities & events
+          Wähle das Quartal aus, füge Aktivitäten & Veranstaltungen hinzu
         </p>
       </header>
 

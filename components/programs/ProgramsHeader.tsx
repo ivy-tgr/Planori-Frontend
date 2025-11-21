@@ -14,7 +14,7 @@ export function ProgramsHeader({ totalPrograms }: ProgramsHeaderProps) {
       <div>
         <h1 className="text-3xl font-bold text-gray-900">Quarter Programs</h1>
         <p className="text-gray-500 mt-1">
-          Manage your quarterly programs ({totalPrograms})
+          Verwalten Sie Ihre Quartalsprogramme ({totalPrograms})
         </p>
       </div>
       <Button
@@ -23,7 +23,7 @@ export function ProgramsHeader({ totalPrograms }: ProgramsHeaderProps) {
         onClick={() => router.push("/programs/new")}
       >
         <Plus className="h-5 w-5" />
-        New Program
+        Neues Program
       </Button>
     </div>
   );

@@ -22,7 +22,7 @@ export function MaterialsCard({
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>Materials</CardTitle>
+        <CardTitle>Material</CardTitle>
         <Button variant="outline" size="sm" onClick={onAdd}>
           <Plus className="h-4 w-4 mr-1" />
           Add

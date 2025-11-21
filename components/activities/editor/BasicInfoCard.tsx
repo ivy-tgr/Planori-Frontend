@@ -12,32 +12,32 @@ export function BasicInfoCard({ activityData, onChange }: BasicInfoCardProps) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Basic Information</CardTitle>
+        <CardTitle>Grundinformationen</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         <div>
-          <Label>Activity Title</Label>
+          <Label>Aktivitätstitel</Label>
           <Input
             value={activityData.name}
             onChange={(e) => onChange("name", e.target.value)}
-            placeholder="e.g., Willy Wonka SSL"
+            placeholder="z.B. Willy Wonka SSL"
           />
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <Label>Location</Label>
+            <Label>Ort</Label>
             <Input
               value={activityData.location}
               onChange={(e) => onChange("location", e.target.value)}
-              placeholder="e.g., Forest Hut Ettenberg"
+              placeholder="z.B. Waldhütte Ettenberg"
             />
           </div>
         </div>
 
         <div className="grid grid-cols-3 gap-4">
           <div>
-            <Label>Date</Label>
+            <Label>Datum</Label>
             <Input
               type="date"
               value={activityData.date}
@@ -45,7 +45,7 @@ export function BasicInfoCard({ activityData, onChange }: BasicInfoCardProps) {
             />
           </div>
           <div>
-            <Label>From</Label>
+            <Label>Von</Label>
             <Input
               type="time"
               value={activityData.startTime}
@@ -53,7 +53,7 @@ export function BasicInfoCard({ activityData, onChange }: BasicInfoCardProps) {
             />
           </div>
           <div>
-            <Label>To</Label>
+            <Label>Bis</Label>
             <Input
               type="time"
               value={activityData.endTime}

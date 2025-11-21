@@ -38,20 +38,20 @@ export function ActivitiesSection({
       <CardHeader>
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle>Activities</CardTitle>
+            <CardTitle>Aktivitäten</CardTitle>
             <p className="text-sm text-gray-500 mt-1">
-              Add activities with title, date, location, leader and red thread
+              Füge Aktivitäten mit Titel, Datum, Ort, Leitung und rotem Faden hinzu
             </p>
           </div>
           <Button type="button" onClick={addActivity}>
-            + Add Activity
+            + Aktivität hinzufügen
           </Button>
         </div>
       </CardHeader>
       <CardContent className="space-y-6">
         {activities.length === 0 ? (
           <p className="text-gray-500 text-center py-4">
-            No activities added yet
+            Noch keine Aktivitäten hinzugefügt
           </p>
         ) : (
           activities.map((activity, index) => (

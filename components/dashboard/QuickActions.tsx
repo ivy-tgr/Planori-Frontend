@@ -4,23 +4,23 @@ import { Button } from "@/components/ui/button";
 
 const QUICK_ACTIONS = [
   {
-    title: "Create Activity",
-    description: "Plan your next scout activity",
+    title: "Aktivität erstellen",
+    description: "Plane deine nächste Pfadfinder-Aktivität",
     path: "/activities/new",
   },
   {
-    title: "Create Program",
-    description: "Plan your quarterly program",
+    title: "Programm erstellen",
+    description: "Plane dein Quartalsprogramm",
     path: "/programs/new",
   },
   {
-    title: "Manage Materials",
-    description: "Organize your materials",
+    title: "Materialien verwalten",
+    description: "Organisiere deine Materialien",
     path: "/materials",
   },
   {
-    title: "All Activities",
-    description: "Overview of all activities",
+    title: "Alle Aktivitäten",
+    description: "Übersicht über alle Aktivitäten",
     path: "/activities",
   },
 ];
@@ -32,7 +32,7 @@ export function QuickActions() {
     <Card>
       <CardHeader>
         <CardTitle>Quick Start</CardTitle>
-        <p className="text-sm text-gray-500">Get started with Planori</p>
+        <p className="text-sm text-gray-500">Starte mit Planori</p>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

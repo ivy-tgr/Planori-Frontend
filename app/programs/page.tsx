@@ -19,7 +19,7 @@ export default function ProgramsPage() {
 
   return (
     <DashboardLayout user={user} activePage="programs">
-      <Breadcrumb items={["Planori", "Quarter Programs"]} />
+      <Breadcrumb items={["Planori", "Quartals Program"]} />
 
       <div className="p-8">
         <ProgramsHeader totalPrograms={programs.length} />
