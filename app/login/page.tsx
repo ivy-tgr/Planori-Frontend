@@ -1,44 +1,48 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../lib/firebase';
+import { auth } from '@/lib/firebase';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useRouter } from 'next/navigation';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
+  const [error, setError] = useState('');
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
     setLoading(true);
+    setError('');
 
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      const token = await userCredential.user.getIdToken();
+      const user = userCredential.user;
+      
+      const idToken = await user.getIdToken();
       
       const response = await fetch('http://localhost:3000/api/auth/verify', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
+          'Authorization': `Bearer ${idToken}`
+        },
+        body: JSON.stringify({ email: user.email, uid: user.uid })
       });
 
-      if (response.ok) {
-        localStorage.setItem('authToken', token);
-        router.push('/dashboard');
-      } else {
-        setError('Backend-Authentifizierung fehlgeschlagen');
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Authentifizierung fehlgeschlagen');
       }
+
+      localStorage.setItem('authToken', idToken);
+      
+      router.push('/dashboard');
     } catch (err: unknown) {
       if (err instanceof Error) {
         setError(err.message || 'Login fehlgeschlagen');
@@ -51,40 +55,47 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle>Login</CardTitle>
-          <CardDescription>Melde dich mit deinem Account an</CardDescription>
+          <CardTitle className="text-2xl text-center">Planori Login</CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleLogin} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="email">E-Mail</Label>
+            {error && (
+              <div className="p-3 bg-red-50 border border-red-200 rounded text-red-700 text-sm">
+                {error}
+              </div>
+            )}
+            
+            <div>
+              <label className="block text-sm font-medium mb-1">E-Mail</label>
               <Input
-                id="email"
                 type="email"
-                placeholder="deine@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                placeholder="deine@email.ch"
                 required
               />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="password">Passwort</Label>
+
+            <div>
+              <label className="block text-sm font-medium mb-1">Passwort</label>
               <Input
-                id="password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                placeholder="••••••••"
                 required
               />
             </div>
-            {error && (
-              <p className="text-sm text-red-500">{error}</p>
-            )}
-            <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? 'Wird geladen...' : 'Anmelden'}
+
+            <Button 
+              type="submit" 
+              className="w-full" 
+              disabled={loading}
+            >
+              {loading ? 'Login läuft...' : 'Anmelden'}
             </Button>
           </form>
         </CardContent>

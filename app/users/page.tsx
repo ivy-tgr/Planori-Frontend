@@ -31,7 +31,7 @@ export default function UsersPage() {
   const [form, setForm] = useState<{ name: string; email: string; role: string }>({
     name: "",
     email: "",
-    role: "member"
+    role: "Leiter"
   });
 
   const fetchUsers = async () => {
@@ -123,7 +123,7 @@ export default function UsersPage() {
       }
       
       setEditingUser(null);
-      setForm({ name: "", email: "", role: "member" });
+      setForm({ name: "", email: "", role: "Leiter" });
       await fetchUsers();
     } catch (err: unknown) {
       if (err instanceof Error) {
@@ -162,7 +162,6 @@ export default function UsersPage() {
               </p>
             </CardHeader>
             <CardContent>
-              {/* Error Anzeige */}
               {error && (
                 <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-2">
                   <AlertCircle className="h-5 w-5 text-red-600 mt-0.5" />
@@ -181,7 +180,6 @@ export default function UsersPage() {
                 </div>
               )}
 
-              {/* Formular - nur wenn keine Fehler */}
               {!error && (
                 <form 
                   onSubmit={e => { e.preventDefault(); handleSave(); }} 
@@ -208,7 +206,6 @@ export default function UsersPage() {
                     onChange={handleChange} 
                     className="border px-3 py-2 rounded"
                   >
-                    <option value="member">Mitglied</option>
                     <option value="lead">Leiter</option>
                     <option value="admin">Admin</option>
                   </select>
@@ -227,7 +224,6 @@ export default function UsersPage() {
                 </form>
               )}
 
-              {/* Tabelle */}
               <div className="border rounded-lg overflow-hidden">
                 <Table>
                   <TableHeader>
@@ -235,7 +231,6 @@ export default function UsersPage() {
                       <TableHead>Name</TableHead>
                       <TableHead>Email</TableHead>
                       <TableHead>Rolle</TableHead>
-                      <TableHead>Status</TableHead>
                       <TableHead></TableHead>
                     </TableRow>
                   </TableHeader>
@@ -261,13 +256,6 @@ export default function UsersPage() {
                           </TableCell>
                           <TableCell>
                             <span className="capitalize">{user.role}</span>
-                          </TableCell>
-                          <TableCell>
-                            {user.active ? (
-                              <span className="text-green-600 font-medium">Aktiv</span>
-                            ) : (
-                              <span className="text-gray-400">Inaktiv</span>
-                            )}
                           </TableCell>
                           <TableCell>
                             <div className="flex gap-1">

@@ -161,7 +161,6 @@ export default function MaterialsPage() {
             </CardHeader>
 
             <CardContent>
-              {/* Filter & Suche */}
               <div className="mb-6 flex gap-4">
                 <div className="flex-1 relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
@@ -187,7 +186,6 @@ export default function MaterialsPage() {
                 </select>
               </div>
 
-              {/* Gruppierte Tabelle nach User */}
               {filteredMaterials.length === 0 ? (
                 <div className="text-center py-12 text-gray-500">
                   <Package className="h-12 w-12 mx-auto mb-4 text-gray-400" />
@@ -256,7 +254,6 @@ export default function MaterialsPage() {
                                       router.push(`/activities/${material.activityId}`);
                                     }}
                                   >
-                                    →
                                   </Button>
                                 </TableCell>
                               </TableRow>

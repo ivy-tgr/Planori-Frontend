@@ -86,7 +86,7 @@ export default function ActivitiesPage() {
     (activity) =>
       activity.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       activity.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (activity.redThread?.toLowerCase().includes(searchTerm.toLowerCase()))
+      activity.redThread?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   if (loading) {
@@ -159,7 +159,10 @@ export default function ActivitiesPage() {
                   <TableBody>
                     {filteredActivities.length === 0 ? (
                       <TableRow>
-                        <TableCell colSpan={6} className="text-center py-8 text-gray-500">
+                        <TableCell
+                          colSpan={6}
+                          className="text-center py-8 text-gray-500"
+                        >
                           Keine Aktivitäten gefunden
                         </TableCell>
                       </TableRow>
@@ -184,7 +187,6 @@ export default function ActivitiesPage() {
                             {activity.name}
                           </TableCell>
                           <TableCell className="flex items-center gap-2">
-                            <ArrowRight className="h-4 w-4 text-gray-400" />
                             {activity.location}
                           </TableCell>
                           <TableCell>

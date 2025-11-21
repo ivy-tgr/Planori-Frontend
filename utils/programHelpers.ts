@@ -21,7 +21,6 @@ export function categorizePrograms(programs: QuarterPlan[]): CategorizedPrograms
     }
   });
 
-  // Sort each category
   categorized.active.sort(
     (a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
   );
